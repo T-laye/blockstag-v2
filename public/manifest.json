@@ -1,0 +1,24 @@
+{
+  "name": "Blocstage",
+  "short_name": "Blocstage",
+  "description": "Blocstage is an all‑in‑one platform to plan, manage, and grow impactful events and communities with ease.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#092C4C",
+  "theme_color": "#092C4C",
+  "icons": [
+    {
+      "src": "/logo/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
