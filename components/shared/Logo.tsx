@@ -8,18 +8,18 @@ interface LogoProps {
 
 const Logo = ({ variant = "primary", size = "sm" }: LogoProps) => {
   const sizeClasses = {
-    sm: "h-6",
+    sm: "w-[100px] sm:w-[150px]",
     lg: "h-7",
   };
 
   return (
-    <Link href="/">
+    <Link href="/" className={`${sizeClasses[size]}`}>
       <Image
         src={`/logo/${variant}.png`}
         alt="Logo"
         width={100}
         height={50}
-        className={`object-contain ${sizeClasses[size]}`}
+        className={`object-contain h-full w-full`}
       />
     </Link>
   );

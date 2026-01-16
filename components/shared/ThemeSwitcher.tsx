@@ -1,7 +1,6 @@
 "use client";
-
 import { LuSunMoon } from "react-icons/lu";
-import { useThemeStore } from "../stores/themeStore";
+import { useThemeStore } from "../../stores/themeStore";
 import { FiSun } from "react-icons/fi";
 
 export function ThemeToggle() {
@@ -10,9 +9,9 @@ export function ThemeToggle() {
   console.log("Current theme:", theme);
 
   return (
-    <div className="flex gap-2 text-2xl cursor-pointer">
+    <div className="flex gap-2 text-3xl sm:text-4xl cursor-pointer">
       {theme === "dark" ? (
-        <button className="text-2xl" onClick={() => setTheme("light")}>
+        <button className="" onClick={() => setTheme("light")}>
           <FiSun />
         </button>
       ) : (
