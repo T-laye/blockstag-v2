@@ -3,8 +3,6 @@ import "./globals.css";
 import ThemeProvider from "../providers/ThemeProvider";
 import Script from "next/script";
 
-
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://blocstage.com"),
   title: {
@@ -56,7 +54,7 @@ export const metadata: Metadata = {
     siteName: "Blocstage",
     images: [
       {
-        url: "/logo/primary.png",
+        url: "/images/opengraph_preview.png",
         width: 1200,
         height: 630,
         alt: "Blocstage",
