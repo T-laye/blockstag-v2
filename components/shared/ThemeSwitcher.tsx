@@ -9,13 +9,13 @@ export function ThemeToggle() {
   console.log("Current theme:", theme);
 
   return (
-    <div className="flex gap-2 text-3xl sm:text-4xl cursor-pointer">
+    <div className="flex gap-2 text-3xl sm:text-4xl">
       {theme === "dark" ? (
-        <button className="" onClick={() => setTheme("light")}>
+        <button className="cursor-pointer" onClick={() => setTheme("light")}>
           <FiSun />
         </button>
       ) : (
-        <button onClick={() => setTheme("dark")}>
+        <button className="cursor-pointer" onClick={() => setTheme("dark")}>
           <LuSunMoon />
         </button>
       )}

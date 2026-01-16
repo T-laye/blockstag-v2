@@ -114,8 +114,6 @@
   font-display: swap;
 }
 
-
-
 :root {
   --background: #ffffff;
   --foreground: #211d1d;
@@ -233,6 +231,9 @@
   /* * {
     @apply border-border outline-ring/50;
   } */
+  html {
+    scroll-snap-type: y mandatory;
+  }
   body {
     /* font-family: Helvetica, sans-serif; */
     font-family: "Helvetica Now Display", system-ui, sans-serif;
