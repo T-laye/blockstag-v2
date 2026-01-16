@@ -5,10 +5,16 @@ interface AboutCardProps {
   title: string;
   description: string;
   image: string;
+  imageDark: string;
 }
 
 // const AboutCard = ({ title, description, image }: AboutCardProps) => {
-const AboutCard = ({ title, description, image }: AboutCardProps) => {
+const AboutCard = ({
+  title,
+  description,
+  image,
+  imageDark,
+}: AboutCardProps) => {
   return (
     <div className="img-container max-w-114.25 ">
       <div>
@@ -17,7 +23,14 @@ const AboutCard = ({ title, description, image }: AboutCardProps) => {
           src={image}
           width={400}
           height={400}
-          className="h-full w-full object-contain"
+          className="h-full w-full object-contain dark:hidden"
+        />
+        <Image
+          alt="image"
+          src={imageDark}
+          width={400}
+          height={400}
+          className="h-full w-full object-contain hidden dark:block"
         />
       </div>
       <div className="px-3 mt-4.25">

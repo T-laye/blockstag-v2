@@ -6,6 +6,7 @@ interface ParallaxScrollProps {
     title: string;
     description: string;
     image: string;
+    imageDark: string;
   };
 }
 
@@ -15,6 +16,7 @@ export default function ParallaxScroll({ item }: ParallaxScrollProps) {
       title={item.title}
       description={item.description}
       image={item.image}
+      imageDark={item.imageDark}
     />
   );
 }

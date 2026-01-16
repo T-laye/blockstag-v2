@@ -78,7 +78,7 @@ export default function About() {
   return (
     <section
       ref={sectionRef}
-      className="pt-7 min-[500px]:pt-20 lg:pt-33 pb-20 h[50vh]"
+      className="pt-7 min-[500px]:pt-20 lg:pt-33 h[50vh]"
     >
       <div className="landing-container h-fit flex">
         <div className="md:grid md:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 w-full">
