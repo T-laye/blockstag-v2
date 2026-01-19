@@ -155,14 +155,19 @@ export default function PicCarousel() {
 
 function Pic({ content }: { content: { title: string; url: string } }) {
   return (
-    <div className="w-full rounded-[11.08px] sm:rounded-[20px] overflow-hidden sm:aspect-11/12">
-      <Image
-        alt={content.title}
-        src={content.url}
-        width={1000}
-        height={1000}
-        className="w-full h-full object-cover object-top transition-transform duration-300 hover:scale-110"
-      />
+    <div className="w-full flex flex-col">
+      <div className="w-full rounded-[11.08px] sm:rounded-[20px] overflow-hidden sm:aspect-11/12">
+        <Image
+          alt={content.title}
+          src={content.url}
+          width={1000}
+          height={1000}
+          className="w-full h-full object-cover object-top transition-transform duration-300 hover:scale-110"
+        />
+      </div>
+      <h5 className="text-center mt-2 text-xs font-medium sm:text-base lg:text-[22px]">
+        {content.title}
+      </h5>
     </div>
   );
 }
