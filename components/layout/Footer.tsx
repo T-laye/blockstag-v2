@@ -27,7 +27,7 @@ export default function Footer() {
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 hover:text-primary transition-colors duration-150"
               >
                 <FaFacebookF />
                 <span className="hidden lg:inline-block text-sm lg:text-base">
@@ -38,7 +38,7 @@ export default function Footer() {
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 hover:text-primary transition-colors duration-150"
               >
                 <FaInstagram />
                 <span className="hidden lg:inline-block text-sm lg:text-base">
@@ -49,7 +49,7 @@ export default function Footer() {
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 hover:text-primary transition-colors duration-150"
               >
                 <FaXTwitter />
                 <span className="hidden lg:inline-block text-sm lg:text-base">
@@ -60,7 +60,7 @@ export default function Footer() {
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 hover:text-primary transition-colors duration-150"
               >
                 <FaLinkedin />
                 <span className="hidden lg:inline-block text-sm lg:text-base">
@@ -77,7 +77,7 @@ export default function Footer() {
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block"
+                className="block hover:text-primary transition-colors duration-150"
               >
                 Privacy Policy{" "}
               </Link>
@@ -85,7 +85,7 @@ export default function Footer() {
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block"
+                className="block hover:text-primary transition-colors duration-150"
               >
                 Terms of Service
               </Link>

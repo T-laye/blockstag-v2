@@ -9,7 +9,7 @@ export function ThemeToggle() {
   // console.log("Current theme:", theme);
 
   return (
-    <div className="flex gap-2 text-3xl sm:text-4xl">
+    <div className="flex gap-2 text-3xl sm:text-4xl hover:text-primary transition-colors duration-150">
       {theme === "dark" ? (
         <button className="cursor-pointer" onClick={() => setTheme("light")}>
           <FiSun />
