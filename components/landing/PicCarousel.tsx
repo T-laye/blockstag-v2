@@ -122,7 +122,7 @@ export default function PicCarousel() {
   }, [api]);
 
   return (
-    <section ref={sectionRef} className="pt-11 md:pt-16 lg:pt-16.25 pb-20">
+    <section ref={sectionRef} className="pt-11 md:pt-16 lg:pt-16.25 ">
       <div className="max-w-300 mx-auto">
         <div ref={carouselRef}>
           <Carousel

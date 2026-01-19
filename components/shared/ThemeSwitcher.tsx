@@ -6,7 +6,7 @@ import { FiSun } from "react-icons/fi";
 export function ThemeToggle() {
   const { theme, setTheme } = useThemeStore();
 
-  console.log("Current theme:", theme);
+  // console.log("Current theme:", theme);
 
   return (
     <div className="flex gap-2 text-3xl sm:text-4xl">
