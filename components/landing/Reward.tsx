@@ -171,10 +171,10 @@ const Card = React.forwardRef<
   return (
     <div
       ref={ref}
-      className="bg-white py-10 px-6 rounded-[20px] max-[570px]:w-full max-[380px]:max-w-51.75 lg:py-16"
+      className="bg-white dark:bg-[#151515] py-10 px-6 rounded-[20px] max-[570px]:w-full max-[380px]:max-w-51.75 lg:py-16"
     >
       <h4 className="font-medium text-xl">{title}</h4>
-      <p className="mt-2 text-base">{description}</p>
+      <p className="mt-2 text-base text-[#636161]">{description}</p>
     </div>
   );
 });
