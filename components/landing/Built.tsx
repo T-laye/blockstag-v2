@@ -104,7 +104,7 @@ export default function Built() {
   return (
     <section
       ref={sectionRef}
-      className="bg-primary pt-9.75 pb-7.5 lg:py-10 mb-40"
+      className="bg-primary pt-9.75 pb-7.5 lg:py-10"
     >
       <div className="landing-container flex font-medium text justify-center items-center flex-col">
         <div ref={topLineRef} className="h-px w-full bgblue-300">
