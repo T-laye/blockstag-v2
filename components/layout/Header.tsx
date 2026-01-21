@@ -38,7 +38,7 @@ export default function Header() {
           opacity: 0,
           duration: 0.6,
         },
-        "-=0.4"
+        "-=0.4",
       );
 
       tl.from(
@@ -48,7 +48,7 @@ export default function Header() {
           opacity: 0,
           duration: 0.6,
         },
-        "-=0.6"
+        "-=0.6",
       );
 
       // Scroll hide/show effect
@@ -90,7 +90,7 @@ export default function Header() {
       className="fixed inset-x-0 top-0 hero-bg py-4 min-h-21.5 flex items-center z-50"
     >
       <div className="landing-container w-full flex justify-between items-center">
-        <div ref={logoRef}>
+        <div ref={logoRef} className="w-30 sm:w-37.5">
           <Logo />
         </div>
 

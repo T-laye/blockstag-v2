@@ -9,7 +9,7 @@ interface LogoProps {
 
 const Logo = ({ variant = "primary", size = "sm", className }: LogoProps) => {
   const sizeClasses = {
-    sm: "w-[100px] sm:w-[150px]",
+    sm: "w-[120px] sm:w-[150px]",
     lg: "h-7",
   };
 

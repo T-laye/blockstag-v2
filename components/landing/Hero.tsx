@@ -6,7 +6,7 @@ import Image from "next/image";
 import { gsap } from "gsap";
 
 export default function Hero() {
-  const heroRef = useRef(null);
+  const heroRef = useRef<HTMLDivElement>(null);
   const h1Ref = useRef(null);
   const pRef = useRef(null);
   const buttonRef = useRef(null);
@@ -35,7 +35,7 @@ export default function Hero() {
           opacity: 0,
           duration: 0.8,
         },
-        "-=0.5" // Start 0.5s before previous animation ends
+        "-=0.5", // Start 0.5s before previous animation ends
       );
 
       // Animate button
@@ -46,7 +46,7 @@ export default function Hero() {
           opacity: 1,
           duration: 0.8,
         },
-        "-=0.5"
+        "-=0.5",
       );
 
       // Animate image with scale
@@ -58,7 +58,7 @@ export default function Hero() {
           scale: 0.95,
           duration: 1,
         },
-        "-=0.6"
+        "-=0.6",
       );
     }, heroRef);
 
@@ -66,8 +66,22 @@ export default function Hero() {
     return () => ctx.revert();
   }, []);
 
+
   return (
     <section ref={heroRef} className="hero-bg pt-20 pb-9.5 sm:pb-16">
+      <svg className="noise-overlay">
+        <filter id="noiseFilter">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.9"
+            numOctaves="4"
+            stitchTiles="stitch"
+          />
+          <feColorMatrix type="saturate" values="0" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+      </svg>
+
       <div className="landing-container flex flex-col items-center mt-10.5 sm:mt-14 lg:mt-18.75">
         <h1
           ref={h1Ref}
@@ -80,8 +94,8 @@ export default function Hero() {
           className="text-center text-base sm:text-xl lg:text-[22px] text-[#636161] dark:text-[#B3B3B3] mt-4"
         >
           An all-in-one platform that helps you plan,{" "}
-          <br className="sm:hidden" /> run, and <br /> grow meaningful events
-          and community
+          <br className="sm:hidden" /> run, and <br className="max-sm:hidden" />{" "}
+          grow meaningful events and community
         </p>
         <Button ref={buttonRef} className="px-6 mt-8 lg:mt-10">
           Create Your First Event

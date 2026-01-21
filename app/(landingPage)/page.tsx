@@ -1,4 +1,5 @@
 import About from "../../components/landing/about-section/About";
+import AboutMobile from "../../components/landing/about-section/AboutMobile";
 import Built from "../../components/landing/Built";
 import Hero from "../../components/landing/Hero";
 import PicCarousel from "../../components/landing/PicCarousel";
@@ -13,6 +14,7 @@ export default function Home() {
       <main>
         <Hero />
         <About />
+        <AboutMobile />
         <Reward />
         <Built />
         <PicCarousel />
