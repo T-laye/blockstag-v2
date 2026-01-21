@@ -2,12 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface LogoProps {
-  variant?: "primary" | "secondary" | "white";
+  variant?: "primary.png" | "secondary.png" | "white-logo.svg";
   size?: "sm" | "lg";
   className?: string;
 }
 
-const Logo = ({ variant = "primary", size = "sm", className }: LogoProps) => {
+const Logo = ({
+  variant = "primary.png",
+  size = "sm",
+  className,
+}: LogoProps) => {
   const sizeClasses = {
     sm: "w-[120px] sm:w-[150px]",
     lg: "h-7",
@@ -16,7 +20,8 @@ const Logo = ({ variant = "primary", size = "sm", className }: LogoProps) => {
   return (
     <Link href="/" className={`${sizeClasses[size]} ${className}`}>
       <Image
-        src={`/logo/${variant}.png`}
+        // src={`/logo/${variant}.png`}
+        src={`/logo/${variant}`}
         alt="Logo"
         width={100}
         height={50}

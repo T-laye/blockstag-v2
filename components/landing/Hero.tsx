@@ -4,13 +4,20 @@ import React, { useEffect, useRef } from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import { gsap } from "gsap";
+import { useRouter } from "next/navigation";
+import { pageRoutes } from "../../lib/routes";
 
 export default function Hero() {
+  const router = useRouter();
   const heroRef = useRef<HTMLDivElement>(null);
   const h1Ref = useRef(null);
   const pRef = useRef(null);
   const buttonRef = useRef(null);
   const imageRef = useRef(null);
+
+  const gotoSignUp = () => {
+    router.push(pageRoutes.authRoutes.SIGN_UP);
+  };
 
   useEffect(() => {
     // Create a GSAP context for cleanup
@@ -99,7 +106,11 @@ export default function Hero() {
           <br className="sm:hidden" /> run, and <br className="max-sm:hidden" />{" "}
           grow meaningful events and community
         </p>
-        <Button ref={buttonRef} className="px-6 mt-8 md:mt-12">
+        <Button
+          ref={buttonRef}
+          onClick={gotoSignUp}
+          className="px-6 mt-8 md:mt-12"
+        >
           Create Your First Event
         </Button>
 

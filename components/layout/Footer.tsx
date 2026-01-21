@@ -13,9 +13,9 @@ export default function Footer() {
             {/* logo */}
             <div>
               <div className="dark:hidden w-25 sm:w-37.5">
-                <Logo className="" size="lg" variant="secondary" />
+                <Logo className="" size="lg" variant="secondary.png" />
               </div>
-              <Logo className="hidden dark:block" variant="white" />
+              <Logo className="hidden dark:block" variant="white-logo.svg" />
               <p className="text-sm md:text-base font-medium text-[#626161] mt-2 md:mt-4">
                 More than events, it&apos;s a ecosystem.
               </p>

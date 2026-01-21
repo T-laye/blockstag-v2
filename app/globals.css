@@ -247,6 +247,13 @@
     @apply max-w-300 mx-auto px-4 md:px-8;
   }
 
+.sign-bg {
+  overflow: hidden;
+  background-image: url("/images/sign-page-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 .hero-bg {
   position: relative;
   overflow: hidden;
