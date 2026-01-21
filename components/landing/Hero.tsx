@@ -66,9 +66,11 @@ export default function Hero() {
     return () => ctx.revert();
   }, []);
 
-
   return (
-    <section ref={heroRef} className="hero-bg pt-20 pb-9.5 sm:pb-16">
+    <section
+      ref={heroRef}
+      className="hero-bg pt-20 pb-9.5 sm:pb-16 md:min-h-[90vh]"
+    >
       <svg className="noise-overlay">
         <filter id="noiseFilter">
           <feTurbulence
@@ -97,11 +99,11 @@ export default function Hero() {
           <br className="sm:hidden" /> run, and <br className="max-sm:hidden" />{" "}
           grow meaningful events and community
         </p>
-        <Button ref={buttonRef} className="px-6 mt-8 lg:mt-10">
+        <Button ref={buttonRef} className="px-6 mt-8 md:mt-12">
           Create Your First Event
         </Button>
 
-        <div ref={imageRef} className="sm:h-74.5 mt-6.75 lg:mt-10">
+        <div ref={imageRef} className="sm:h-74.5 mt-6.75 md:mt-20">
           <Image
             alt="Hero Image"
             src="/images/hero-img.png"
