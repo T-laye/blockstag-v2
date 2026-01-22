@@ -1,5 +1,5 @@
+'use client'
 import Image from "next/image";
-import React from "react";
 import SignUpForm from "../../../../components/auth/signUpFrom";
 
 export default function Page() {

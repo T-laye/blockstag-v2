@@ -2,13 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface LogoProps {
-  variant?: "primary.png" | "secondary.png" | "white-logo.svg";
+  variant?: "primary.svg" | "secondary.svg" | "white-logo.svg";
   size?: "sm" | "lg";
   className?: string;
 }
 
 const Logo = ({
-  variant = "primary.png",
+  variant = "primary.svg",
   size = "sm",
   className,
 }: LogoProps) => {

@@ -3,6 +3,7 @@ import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
+import BtnLoader from "./custom/BtnLoader";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[100px] text-base font-bold transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive sm:text-lg cursor-pointer",
@@ -32,7 +33,7 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
+  },
 );
 
 function Button({
@@ -40,9 +41,12 @@ function Button({
   variant = "default",
   size = "default",
   asChild = false,
+  children,
+  isLoading = false,
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
+    isLoading?: boolean;
     asChild?: boolean;
   }) {
   const Comp = asChild ? Slot : "button";
@@ -50,11 +54,29 @@ function Button({
   return (
     <Comp
       data-slot="button"
-      data-variant={variant}
-      data-size={size}
-      className={cn(buttonVariants({ variant, size, className }))}
+      className={cn(
+        buttonVariants({ variant, size, className }),
+        isLoading && "opacity-90 cursor-not-allowed",
+      )}
+      disabled={isLoading || props.disabled}
       {...props}
-    />
+    >
+      {isLoading ? (
+        <span className="flex items-center gap-2">
+          <BtnLoader />
+          {/* <span className="opacity-80 animate-pulse">loading...</span> */}
+        </span>
+      ) : (
+        children
+      )}
+    </Comp>
+    // <Comp
+    //   data-slot="button"
+    //   data-variant={variant}
+    //   data-size={size}
+    //   className={cn(buttonVariants({ variant, size, className }))}
+    //   {...props}
+    // />
   );
 }
 

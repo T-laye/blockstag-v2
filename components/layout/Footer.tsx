@@ -13,7 +13,7 @@ export default function Footer() {
             {/* logo */}
             <div>
               <div className="dark:hidden w-25 sm:w-37.5">
-                <Logo className="" size="lg" variant="secondary.png" />
+                <Logo className="" size="lg" variant="secondary.svg" />
               </div>
               <Logo className="hidden dark:block" variant="white-logo.svg" />
               <p className="text-sm md:text-base font-medium text-[#626161] mt-2 md:mt-4">
