@@ -19,12 +19,13 @@ import {
 import InputField from "../ui/custom/InputField";
 import Link from "next/link";
 import { pageRoutes } from "../../lib/routes";
+import { useRouter } from "next/navigation";
 
 type SignUpValues = z.infer<typeof SignUpSchema>;
 
 const SignUpForm = () => {
   const [loading, setLoading] = useState(false);
-  //   const router = useRouter();
+    const router = useRouter();
   //   const toast = useToast();
 
   const form = useForm<SignUpValues>({
@@ -44,7 +45,7 @@ const SignUpForm = () => {
     setTimeout(() => {
       setLoading(false);
       toast.success("Sign up successful! Please verify your email.");
-      //   router.push(`${authRoutes.VERIFICATION_SENT}?email=${values.email}`);
+        router.push(`${pageRoutes.authRoutes.VERIFY_OTP(values.email)}`);
     }, 1000);
   };
 

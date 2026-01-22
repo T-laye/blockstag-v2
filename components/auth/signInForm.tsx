@@ -140,7 +140,7 @@ const SignInForm = () => {
                 </span>{" "}
               </p>
             </div> */}
-              <div className="flex items-center justify-between gap-1 mt-8">
+              <div className="flex items-center justify-between gap-3 mt-8">
                 <p className="text-[#4F4F4F] dark:text-[#B3B3B3]">
                   Don&apos;t have an account?{" "}
                   <Link
