@@ -1,7 +1,6 @@
 import Image from "next/image";
-import React from "react";
-import SignInForm from "../../../../../components/auth/SignInForm";
 import Link from "next/link";
+import SignInForm from "../../../../../components/auth/SignInForm";
 
 export default function Page() {
   return (
