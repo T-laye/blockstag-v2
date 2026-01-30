@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import SignInForm from "../../../../../components/auth/SignInForm";
 // import SignInForm from "../../../../../components/auth/SignInForm";
 // import SignInForm from "../../../../../components/auth/SignInForm";
 
@@ -25,7 +26,7 @@ export default function Page() {
         </p>
       </div>
       <div>
-        {/* <SignInForm /> */}
+        <SignInForm />
       </div>
     </div>
   );
