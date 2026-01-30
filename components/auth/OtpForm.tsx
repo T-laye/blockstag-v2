@@ -8,14 +8,16 @@ import {
 } from "@/components/ui/input-otp";
 import { REGEXP_ONLY_DIGITS } from "input-otp";
 import { Button } from "../ui/button";
-import { toast } from "sonner";
-import { useRouter } from "next/navigation";
-import { pageRoutes } from "../../lib/routes";
+import { useSearchParams } from "next/navigation";
+import { useVerifyEmail } from "../../hooks/useAuth";
 
 export function OtpForm() {
+  const searchParams = useSearchParams();
+  const email = searchParams.get("email") || "";
   const [otp, setOtp] = useState("");
-  const [loading, setLoading] = useState(false);
-  const router = useRouter();
+  const { mutate, isPending } = useVerifyEmail();
+
+  // console.log(email);
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,13 +27,15 @@ export function OtpForm() {
       return;
     }
 
-    console.log("Submitted OTP:", otp);
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      toast.success("OTP Verification Successful");
-      router.push(`${pageRoutes.authRoutes.UPDATE_PROFILE}`);
-    }, 1000);
+    mutate({ email, otp });
+
+    // console.log("Submitted OTP:", otp);
+    // setLoading(true);
+    // setTimeout(() => {
+    //   setLoading(false);
+    //   toast.success("OTP Verification Successful");
+    //   router.push(`${pageRoutes.authRoutes.UPDATE_PROFILE}`);
+    // }, 1000);
   };
 
   return (
@@ -63,8 +67,8 @@ export function OtpForm() {
 
         <Button
           type="submit"
-          disabled={otp.length !== 4 || loading}
-          isLoading={loading}
+          disabled={otp.length !== 4 || isPending}
+          isLoading={isPending}
           className="w-full max-w-22.5 sm:max-w-24"
         >
           Verify

@@ -1,13 +1,13 @@
-'use client'
 import Image from "next/image";
-import SignUpForm from "../../../../components/auth/signUpFrom";
+import React from "react";
+import SignInForm from "../../../../../components/auth/SignInForm";
 import Link from "next/link";
 
 export default function Page() {
   return (
     <div className="pt-20 lg:pt-28 w-full">
       <div className="flex flex-col items-center justifycenter">
-        <Link href='/' className="inline-block w-15 lg:w-8">
+        <Link href="/" className="inline-block w-15 lg:w-8">
           <Image
             className="h-full w-full object-contain"
             height={100}
@@ -18,14 +18,14 @@ export default function Page() {
         </Link>
 
         <h2 className="mt-4 lg:mt-1.5 font-bold text-2xl lg:text-[32px]">
-          Sign up for Blockstage
+          Welcome Back
         </h2>
         <p className="mt-2 text-base lg:text-lg text-primary">
-          Not just events, memorable ones.
+          Event that builds communities.
         </p>
       </div>
       <div>
-        <SignUpForm />
+        <SignInForm />
       </div>
     </div>
   );

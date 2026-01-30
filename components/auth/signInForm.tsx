@@ -1,8 +1,6 @@
 "use client";
-import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Button } from "../ui/button";
-import { toast } from "sonner";
 import { SignInSchema } from "../../lib/validations/authValidations";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -18,13 +16,12 @@ import {
 import InputField from "../ui/custom/InputField";
 import Link from "next/link";
 import { pageRoutes } from "../../lib/routes";
+import { useLogin } from "../../hooks/useAuth";
 
 type SignInValues = z.infer<typeof SignInSchema>;
 
 const SignInForm = () => {
-  const [loading, setLoading] = useState(false);
-  //   const router = useRouter();
-  //   const toast = useToast();
+  const { mutate, isPending } = useLogin();
 
   const form = useForm<SignInValues>({
     resolver: zodResolver(SignInSchema),
@@ -35,19 +32,11 @@ const SignInForm = () => {
   });
 
   const onSubmit = async (values: SignInValues) => {
-    // const { email, password } = values;
+    const { email, password } = values;
 
-    // mutate({ email, password });
-    setLoading(true);
-    console.log("Submitted:", values);
-    setTimeout(() => {
-      setLoading(false);
-      toast.success("Sign up successful! Please verify your email.");
-      //   router.push(`${authRoutes.VERIFICATION_SENT}?email=${values.email}`);
-    }, 1000);
+    mutate({ email, password });
   };
-
-  return (
+  return (  
     <div className="mt-8 w-full">
       <div className="w-full">
         <Button className="flex justify-center w-full gap-2.5 bg-[#EFE5E1] text-[#211D1DDD] text-lg dark:bg-[#151515] dark:text-[#FFFFFFDD]">
@@ -152,7 +141,7 @@ const SignInForm = () => {
                 </p>
                 <Button
                   type="submit"
-                  isLoading={loading}
+                  isLoading={isPending}
                   className="w-full max-w-26.25 sm:max-w-30"
                 >
                   Sign In

@@ -1,6 +1,6 @@
+"use client";
 import Image from "next/image";
-import React from "react";
-import SignInForm from "../../../../components/auth/signInForm";
+import SignUpForm from "../../../../../components/auth/SignUpFrom";
 import Link from "next/link";
 
 export default function Page() {
@@ -18,14 +18,14 @@ export default function Page() {
         </Link>
 
         <h2 className="mt-4 lg:mt-1.5 font-bold text-2xl lg:text-[32px]">
-          Welcome Back
+          Sign up for Blockstage
         </h2>
         <p className="mt-2 text-base lg:text-lg text-primary">
-          Event that builds communities.
+          Not just events, memorable ones.
         </p>
       </div>
       <div>
-        <SignInForm />
+        <SignUpForm />
       </div>
     </div>
   );

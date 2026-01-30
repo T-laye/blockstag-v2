@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "../ui/button";
 import { FcGoogle } from "react-icons/fc";
 // import { useRouter } from "next/navigation";
@@ -7,7 +7,6 @@ import { useForm } from "react-hook-form";
 import { SignUpSchema } from "../../lib/validations/authValidations";
 import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { toast } from "sonner";
 import {
   Form,
   FormControl,
@@ -19,34 +18,28 @@ import {
 import InputField from "../ui/custom/InputField";
 import Link from "next/link";
 import { pageRoutes } from "../../lib/routes";
-import { useRouter } from "next/navigation";
+import { useRegister } from "../../hooks/useAuth";
 
 type SignUpValues = z.infer<typeof SignUpSchema>;
 
 const SignUpForm = () => {
-  const [loading, setLoading] = useState(false);
-    const router = useRouter();
-  //   const toast = useToast();
+  const { mutate, isPending } = useRegister();
 
   const form = useForm<SignUpValues>({
     resolver: zodResolver(SignUpSchema),
     defaultValues: {
       email: "",
       password: "",
+      first_name: "",
+      last_name: "",
+      username: "",
     },
   });
 
   const onSubmit = async (values: SignUpValues) => {
-    // const { email, password } = values;
+    const { email, password, first_name, last_name, username } = values;
 
-    // mutate({ email, password });
-    setLoading(true);
-    console.log("Submitted:", values);
-    setTimeout(() => {
-      setLoading(false);
-      toast.success("Sign up successful! Please verify your email.");
-        router.push(`${pageRoutes.authRoutes.VERIFY_OTP(values.email)}`);
-    }, 1000);
+    mutate({ email, password, first_name, last_name, username });
   };
 
   return (
@@ -83,6 +76,55 @@ const SignUpForm = () => {
       <section className="mt-8">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+            {/* --------------------------------
+              Name FIELD
+          -------------------------------- */}
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <FormField
+                control={form.control}
+                name="first_name"
+                render={({ field, fieldState }) => (
+                  <FormItem>
+                    <FormLabel>First Name</FormLabel>
+
+                    <FormControl>
+                      <InputField
+                        {...field}
+                        label=""
+                        placeholder="e.g. Justin"
+                        type="text"
+                        error={fieldState.error?.message ?? null}
+                      />
+                    </FormControl>
+
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="last_name"
+                render={({ field, fieldState }) => (
+                  <FormItem>
+                    <FormLabel>Last Name</FormLabel>
+
+                    <FormControl>
+                      <InputField
+                        {...field}
+                        label=""
+                        placeholder="e.g. Joe"
+                        type="text"
+                        error={fieldState.error?.message ?? null}
+                      />
+                    </FormControl>
+
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
             {/* --------------------------------
               EMAIL FIELD
           -------------------------------- */}
@@ -135,6 +177,38 @@ const SignUpForm = () => {
               )}
             />
 
+            {/* --------------------------------
+              Username FIELD
+          -------------------------------- */}
+            <FormField
+              control={form.control}
+              name="username"
+              render={({ field, fieldState }) => (
+                <FormItem>
+                  <FormLabel>Create a Username</FormLabel>
+
+                  <FormControl>
+                    <InputField
+                      {...field}
+                      label=""
+                      value={
+                        field?.value?.startsWith("@")
+                          ? field.value
+                          : `@${field.value}`
+                      }
+                      onChange={(e) =>
+                        field.onChange(e.target.value.replace(/^@/, ""))
+                      }
+                      placeholder="e.g. Joe"
+                      type="text"
+                      error={fieldState.error?.message ?? null}
+                    />
+                  </FormControl>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
             {/* <div>
               <p className="text-sm text-center my-7.5">
                 By creating an account you agree to all of our <br />
@@ -155,7 +229,7 @@ const SignUpForm = () => {
               </p>
               <Button
                 type="submit"
-                isLoading={loading}
+                isLoading={isPending}
                 className="w-full max-w-26.25 sm:max-w-30"
               >
                 Sign up

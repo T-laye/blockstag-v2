@@ -1,9 +1,9 @@
 import React from "react";
-import { OtpForm } from "../../../../components/auth/OtpForm";
+import { OtpForm } from "../../../../../components/auth/OtpForm";
 
 export default function Page() {
   return (
-    <div className="max-w-78.5 sm:max-w-80 w-full mx-auto">
+    <div className="max-w-78.5 sm:max-w-80 w-full mx-auto px-4">
       <section className="mt-33">
         <div className="w-12.5 sm:w-20">
           <svg
