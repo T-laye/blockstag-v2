@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import SignInForm from "../../../../../components/auth/SignInForm";
+import SignInForm from "../../../../../components/auth/signInForm";
 // import SignInForm from "../../../../../components/auth/SignInForm";
 // import SignInForm from "../../../../../components/auth/SignInForm";
 
