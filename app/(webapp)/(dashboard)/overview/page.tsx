@@ -1,5 +1,15 @@
-import React from "react";
+"use client";
+
+import { useGetUser } from "../../../../hooks/useUser";
 
 export default function Page() {
-  return <div>Overview</div>;
+  const { data } = useGetUser();
+
+  //   console.log(data);
+
+  return (
+    <div>
+      Hello {data?.first_name} {data?.last_name}
+    </div>
+  );
 }

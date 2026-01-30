@@ -19,4 +19,7 @@ export const backendRoutes = {
     LOGIN: "/auth/login",
     VERIFY_EMAIL: "/auth/verify-email",
   },
+  userRoutes: {
+    GET_USER: "/users/me",
+  },
 };

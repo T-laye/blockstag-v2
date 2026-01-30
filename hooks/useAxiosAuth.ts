@@ -10,7 +10,7 @@ export default function useAxiosAuth() {
       (config) => {
         // 👇 Read token on EACH request, not just on mount
         const accessToken = Cookies.get("access_token");
-
+        console.log("access token", accessToken);
         if (accessToken && !config.headers["Authorization"]) {
           config.headers["Authorization"] = `Bearer ${accessToken}`;
         }

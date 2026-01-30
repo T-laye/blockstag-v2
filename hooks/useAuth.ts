@@ -5,6 +5,7 @@ import { ILoginResponse, IRegisterResponse, IUser } from "../types/userType";
 import { useMutation } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
 import { toast } from "sonner";
+import Cookies from "js-cookie";
 
 export const useRegister = () => {
   const router = useRouter();
@@ -75,9 +76,15 @@ export const useLogin = () => {
   >({
     mutationFn: handleLogin,
     onSuccess: (data: ILoginResponse) => {
-      const access_token = data.token;
-      sessionStorage.setItem("access_token", access_token);
-    //   console.log(data);
+      if (data.token) {
+        Cookies.set("access_token", data.token, {
+          expires: 1,
+          secure: process.env.NODE_ENV === "production",
+          sameSite: "Lax",
+          path: "/",
+        });
+      }
+      //   console.log(data);
 
       toast.success(data.message);
       router.push(`${pageRoutes.dashboardRoutes.OVERVIEW}`);
