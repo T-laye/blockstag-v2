@@ -114,6 +114,7 @@ export default function RootLayout({
           href="/logo/favicon-16x16.png"
         ></link>
         <link rel="manifest" href="/logo/site.webmanifest"></link>
+        <script src="https://accounts.google.com/gsi/client" async defer />
       </head>
       <body className={` antialiased`}>
         <ThemeProvider>

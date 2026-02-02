@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { Button } from "../ui/button";
-import { FcGoogle } from "react-icons/fc";
 // import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { SignUpSchema } from "../../lib/validations/authValidations";
@@ -19,6 +18,7 @@ import InputField from "../ui/custom/InputField";
 import Link from "next/link";
 import { pageRoutes } from "../../lib/routes";
 import { useRegister } from "../../hooks/useAuth";
+import GoogleAuthBtn from "./GoogleAuthBtn";
 
 type SignUpValues = z.infer<typeof SignUpSchema>;
 
@@ -45,10 +45,11 @@ const SignUpForm = () => {
   return (
     <div className="mt-8 w-full">
       <section className="w-full">
-        <Button className="flex justify-center w-full gap-2.5 bg-[#EFE5E1] text-[#211D1DDD] text-lg dark:bg-[#151515] hover:text-white dark:text-[#FFFFFFDD]">
+        {/* <Button className="flex justify-center w-full gap-2.5 bg-[#EFE5E1] text-[#211D1DDD] text-lg dark:bg-[#151515] hover:text-white dark:text-[#FFFFFFDD]">
           <FcGoogle className="" />
           <span>Continue with Google</span>
-        </Button>
+        </Button> */}
+        <GoogleAuthBtn />
 
         <div className="flex items-center gap-4 mt-8">
           <div

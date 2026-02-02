@@ -18,6 +18,7 @@ export const backendRoutes = {
     REGISTER: "/auth/register",
     LOGIN: "/auth/login",
     VERIFY_EMAIL: "/auth/verify-email",
+    GOOGLE_AUTH: "/auth/google",
   },
   userRoutes: {
     GET_USER: "/users/me",

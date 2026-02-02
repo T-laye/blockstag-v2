@@ -1,5 +1,4 @@
 "use client";
-import { FcGoogle } from "react-icons/fc";
 import { Button } from "../ui/button";
 import { SignInSchema } from "../../lib/validations/authValidations";
 import { useForm } from "react-hook-form";
@@ -17,6 +16,7 @@ import InputField from "../ui/custom/InputField";
 import Link from "next/link";
 import { pageRoutes } from "../../lib/routes";
 import { useLogin } from "../../hooks/useAuth";
+import GoogleAuthBtn from "./GoogleAuthBtn";
 
 type SignInValues = z.infer<typeof SignInSchema>;
 
@@ -36,13 +36,14 @@ const SignInForm = () => {
 
     mutate({ email, password });
   };
-  return (  
+  return (
     <div className="mt-8 w-full">
       <div className="w-full">
-        <Button className="flex justify-center w-full gap-2.5 bg-[#EFE5E1] text-[#211D1DDD] text-lg dark:bg-[#151515] dark:text-[#FFFFFFDD]">
+        {/* <Button className="flex justify-center w-full gap-2.5 bg-[#EFE5E1] text-[#211D1DDD] text-lg dark:bg-[#151515] dark:text-[#FFFFFFDD]">
           <FcGoogle className="" />
           <span>Continue with Google</span>
-        </Button>
+        </Button> */}
+        <GoogleAuthBtn />
 
         <div className="flex items-center gap-4 mt-8">
           <div
