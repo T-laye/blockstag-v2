@@ -17,9 +17,6 @@ declare global {
 }
 
 const GoogleAuthBtn = () => {
-  const pathname = window.location.href;
-  console.log(pathname);
-
   const handleGoogleLogin = async (response: any) => {
     try {
       console.log("Google ID token:", response.credential);
