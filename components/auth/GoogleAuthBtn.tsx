@@ -22,7 +22,7 @@ const GoogleAuthBtn = () => {
   const router = useRouter();
   const handleGoogleLogin = async (response: any) => {
     try {
-      console.log("Google ID token:", response.credential);
+      // console.log("Google ID token:", response.credential);
 
       const idToken = response.credential;
 
@@ -43,7 +43,7 @@ const GoogleAuthBtn = () => {
         toast.success(res.data.message);
         router.push(pageRoutes.dashboardRoutes.OVERVIEW);
       }
-      console.log(res);
+      // console.log(res);
       if (!res) {
         toast.error("Google authentication failed");
       }
