@@ -1,14 +1,16 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-"use client";
 "use client";
 
 import { useEffect } from "react";
 import { Button } from "../ui/button";
 import { FcGoogle } from "react-icons/fc";
 import { axiosInstance } from "../../config/axios";
-import { backendRoutes } from "../../lib/routes";
+import { backendRoutes, pageRoutes } from "../../lib/routes";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 
 declare global {
   interface Window {
@@ -17,6 +19,7 @@ declare global {
 }
 
 const GoogleAuthBtn = () => {
+  const router = useRouter();
   const handleGoogleLogin = async (response: any) => {
     try {
       console.log("Google ID token:", response.credential);
@@ -30,6 +33,16 @@ const GoogleAuthBtn = () => {
         },
       );
 
+      if (res.status === 200 && res.data.token) {
+         Cookies.set("access_token", res.data.token, {
+           expires: 1,
+           secure: process.env.NODE_ENV === "production",
+           sameSite: "Lax",
+           path: "/",
+         });
+        toast.success(res.data.message);
+        router.push(pageRoutes.dashboardRoutes.OVERVIEW);
+      }
       console.log(res);
       if (!res) {
         toast.error("Google authentication failed");
